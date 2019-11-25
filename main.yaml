@@ -1,0 +1,5 @@
+- import_playbook: init.yaml
+- import_playbook: mysql-init.yaml
+- import_playbook: wordpress-init.yaml
+- import_playbook: jenkins-init.yaml
+- import_playbook: run_check.yaml

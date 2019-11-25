@@ -1,0 +1,24 @@
+---
+- hosts: jenkins
+  tasks:
+  - name: Make directory for wordpress mount
+    become: true
+    file:
+      owner: ubuntu
+      group: ubuntu
+      path: /jenkins
+      state: directory
+      mode: '0755'
+
+  - name: Running the container
+    become: true
+    become_method: sudo
+    docker_container:
+      name: jenkins-marketplace
+      image: jenkins:latest
+      state: started
+      volumes:
+       - /jenkins:/var/jenkins_home
+      ports:
+       - "8090:8080"
+       - "50000:50000"

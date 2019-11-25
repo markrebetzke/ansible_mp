@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+  - name: Check to see all containers are running
+    command: sudo docker ps
+    register: out
+
+  - debug: var=out.stdout_lines
