@@ -15,7 +15,7 @@
     become_method: sudo
     docker_container:
       name: jenkins-marketplace
-      image: jenkins:latest
+      image: jenkins:lts
       state: started
       volumes:
        - /jenkins:/var/jenkins_home
